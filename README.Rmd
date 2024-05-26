@@ -1,0 +1,115 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# getcensoeducacaodata
+
+<!-- badges: start -->
+
+<!-- badges: end -->
+
+**Autor**: Baruque Rodrigues
+
+## **Visão Geral**
+
+O pacote **`getcensoeducacaodata`** foi desenvolvido para facilitar o processo de download e análise dos dados do Censo Escolar no Brasil. Ele permite baixar automaticamente os microdados do Censo Escolar e oferece funções específicas para gerar análises detalhadas de diferentes níveis de ensino e matrículas em municípios e bairros.
+
+## **Funcionalidades**
+
+### **Baixar Microdados do Censo Escolar**
+
+A função **`baixa_microdados_censo_escolar`** permite que os usuários baixem os microdados do Censo Escolar de forma automatizada, economizando tempo e esforço.
+
+### **Análises Específicas**
+
+O pacote inclui várias funções para gerar análises específicas, tais como:
+
+-   **`pega_creches_municipio`**: Coleta dados de creches por município.
+
+-   **`pega_ed_infantil_municipio`**: Coleta dados de educação infantil por município.
+
+-   **`pega_pre_escola_municipio`**: Coleta dados de pré-escola por município.
+
+-   **`pega_ensino_fundamental_municipio`**: Coleta dados de ensino fundamental por município.
+
+-   **`pega_ensino_medio_municipio`**: Coleta dados de ensino médio por município.
+
+-   **`qt_matriculas_muni`**: Obtém a quantidade de matrículas por município.
+
+-   **`qt_matriculas_mun_bairro`**: Obtém a quantidade de matrículas por município e bairro.
+
+## **Instalação**
+
+Para instalar o pacote, você pode usar o **`devtools`**:
+
+```{r, eval = FALSE}
+# Instale o devtools se ainda não estiver instalado
+install.packages("devtools")
+
+# Instale o getcensoeducacaodata a partir do GitHub
+devtools::install_github("BaruqueRodrigues/getcensoeducacaodata")
+
+```
+
+
+## **Uso**
+
+Aqui estão alguns exemplos de como usar as funções do pacote:
+
+```{r}
+library(getcensoeducacaodata)
+```
+
+### **Baixar Microdados do Censo Escolar**
+
+```{r, eval = FALSE}
+# Baixa os microdados do Censo Escolar
+baixa_microdados_censo_escolar(ano = 2023)
+
+```
+
+Para baixar múltiplos anos você pode usar o snippet abaixo
+
+```{r, eval = FALSE}
+anos = 2012:2023
+
+purrr::walk(anos, ~baixa_microdados_censo_escolar(ano = .x))
+
+```
+
+### **Coletar Dados de Creches por Município**
+
+```{r}
+creches_data <- pega_creches_municipio()
+
+creches_data
+
+```
+
+Coletar Dados de Educação Infantil por Município
+
+```{r}
+ed_infantil_data <- pega_ed_infantil_municipio()
+
+ed_infantil_data
+```
+
+```{r}
+# Obtém a quantidade de matrículas por município
+matriculas_data <- qt_matriculas_muni()
+
+matriculas_data
+
+```
+
