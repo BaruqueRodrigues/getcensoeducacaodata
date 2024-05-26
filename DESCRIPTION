@@ -1,0 +1,19 @@
+Package: getcensoeducacaodata
+Type: Package
+Title: baixa os dados do censo da educacao
+Version: 0.1.0
+Author: Baruque Rodrigues
+Maintainer: The package maintainer <quemuel.baruque@ufpe.br>
+Description: baixa e organiza os dados do censo da educacao
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
+Imports: 
+    archive,
+    dplyr,
+    janitor,
+    magrittr,
+    purrr,
+    readr,
+    stringr
